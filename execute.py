@@ -21,7 +21,7 @@ def parse_opt():
 
     parser.add_argument('--root', type=str, default='f:/', help='path of result saving')
     parser.add_argument('--url', type=str, default='https://arxiv.org/list/cs/new', help='the url crawled')
-    parser.add_argument('--update', type=bool, default=True,
+    parser.add_argument('--update', type=bool, default=False,
                         help='Whether crawling it again when the latest data has been crawled.')
 
     opt = parser.parse_args()
@@ -32,7 +32,7 @@ def date_reshape(date):
     month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
     port = date.replace(',','').split(' ')
     new = port[::-1]
-    new[1] = str(month.index(new[1]))
+    new[1] = str(month.index(new[1])+1)
     new[0] = '20'+new[0]
     return '_'.join(new[:-1])
 
