@@ -32,7 +32,7 @@ def date_reshape(date):
     month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
     port = date.replace(',','').split(' ')
     new = port[::-1]
-    new[1] = str(month.index(new[1])+1)
+    new[1] = str(month.index(new[1]) + 1)
     new[0] = '20'+new[0]
     return '_'.join(new[:-1])
 
